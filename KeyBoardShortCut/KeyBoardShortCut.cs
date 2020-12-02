@@ -215,6 +215,7 @@ namespace KeyBoardShortCut
                     renderHK_GUI(key, keyCode, desc);
                 }
             }
+            GUILayout.Label("商店页面按住shift可批量购买/卖出");
             GUILayout.EndVertical();
         }
 
