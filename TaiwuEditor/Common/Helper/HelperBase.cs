@@ -637,5 +637,14 @@ namespace TaiwuEditor
         /// <param name="field">域名称</param>
         /// <returns>域的值</returns>
         public static object GetValue<T>(this T instance, string field) => typeof(T).GetField(field, Flags)?.GetValue(instance);
+
+        /// <summary>
+        /// 设置类实例中域(Field)的值
+        /// </summary>
+        /// <typeparam name="T">实例的类型</typeparam>
+        /// <param name="instance">类实例</param>
+        /// <param name="field">域名称</param>
+        /// <param name="newValue">新值</param>
+        public static void SetValue<T>(this T instance, string field, object newValue) => typeof(T).GetField(field, Flags)?.SetValue(instance, newValue);
     }
 }

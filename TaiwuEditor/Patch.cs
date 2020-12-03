@@ -245,6 +245,23 @@ namespace TaiwuEditor
         }
 
         /// <summary>
+        /// 奇遇转轮正向
+        /// </summary>
+        [HarmonyPatch(typeof(StorySystem), "DoStoryEvent")]
+        private static class StorySystem_DoStoryEvent_Hook
+        {
+            private static bool Prefix(ref StorySystem __instance)
+            {
+                if(!Main.enabled || !Main.settings.basicUISettings[10])
+                {
+                    return true;
+                }
+                ReflectionMethod.SetValue(__instance, "weatherNumber", 0);
+                return true;
+            }
+        }
+
+        /// <summary>
         /// 背包最大载重
         /// </summary>
         [HarmonyPatch(typeof(DateFile), "GetMaxItemSize")]
